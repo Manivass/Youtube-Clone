@@ -19,7 +19,7 @@ const Slidebar = () => {
   console.log(nav);
   if(!nav) return null ;
   return  (
-    <div className="shadow-2xl col-span-1 p-2  border-gray-200 ml-2 ">
+    <div className="w-[220px] shrink-0 shadow-2xl p-2 border-gray-200 ml-2  ">
       <ul className="pb-4 border-b border-gray-300 flex flex-col gap-2">
         <li className="flex text-xl font-bold gap-3">
           <IoHomeSharp className="translate-y-1" />

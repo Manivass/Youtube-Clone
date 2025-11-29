@@ -1,13 +1,13 @@
 import React from "react";
 import Slidebar from "./Slidebar";
-import BodyContainer from "./BodyContainer";
+import VideoContainer from "./VedioContainer";
 
 const Body = () => {
   return (
     <div className="grid grid-flow-col">
     
       <Slidebar />
-      <BodyContainer />
+      <VideoContainer />
     </div>
   );
 };
