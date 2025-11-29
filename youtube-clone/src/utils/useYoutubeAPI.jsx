@@ -5,7 +5,7 @@ const useYoutubeAPI = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  const fetchData = async() => {
+  var fetchData = async() => {
     const data = await fetch(Youtube_API_KEY);
     const response = await data.json();
     setData(response.items)

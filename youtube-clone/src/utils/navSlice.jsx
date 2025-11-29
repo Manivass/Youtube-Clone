@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const navSlice = createSlice({
     name : "app",
     initialState : {
@@ -8,8 +9,12 @@ const navSlice = createSlice({
     reducers : {
         isNav : (state) => {
             state.hambersand = !state.hambersand ;
+        },
+        Watch : (state) => {
+            state.hambersand = false 
         }
+
     }
 })
 export default navSlice.reducer;
-export const {isNav} = navSlice.actions ;
+export const {isNav ,Watch} = navSlice.actions ;

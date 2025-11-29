@@ -8,11 +8,14 @@ const Header = () => {
   const dispatch = useDispatch();
   const navChange = () => {
     dispatch(isNav());
-  }
+  };
   return (
     <div className="grid grid-flow-col p-2  my-3 shadow-lg ">
       <div className="flex col-span-1 gap-2">
-        <IoMdMenu className="text-4xl translate-y-0.5 cursor-pointer" onClick={navChange}/>
+        <IoMdMenu
+          className="text-4xl translate-y-0.5 cursor-pointer"
+          onClick={navChange}
+        />
         <img
           alt="youtube-icon"
           className=" h-11 cursor-pointer"

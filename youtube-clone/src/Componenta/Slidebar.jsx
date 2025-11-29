@@ -14,16 +14,19 @@ import { MdLocalMovies } from "react-icons/md";
 import { MdLiveTv } from "react-icons/md";
 import { SiYoutubegaming } from "react-icons/si";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 const Slidebar = () => {
   const nav = useSelector((store) => store.Nav.hambersand);
   console.log(nav);
-  if(!nav) return null ;
-  return  (
-    <div className="w-[220px] shrink-0 shadow-2xl p-2 border-gray-200 ml-2  ">
+  if (!nav) return null;
+  return (
+    <div className="w-[220px] shrink-0 shadow-2xl p-2 border-gray-200 ml-2 border ">
       <ul className="pb-4 border-b border-gray-300 flex flex-col gap-2">
-        <li className="flex text-xl font-bold gap-3">
-          <IoHomeSharp className="translate-y-1" />
-          Home
+        <li>
+          <Link to="/" className="flex text-xl font-bold gap-3 cursor-pointer">
+            <IoHomeSharp className="translate-y-1" />
+            Home
+          </Link>
         </li>
         <li className="flex text-xl font-bold gap-3 ">
           <SiYoutubeshorts className="translate-y-1" />
