@@ -3,8 +3,36 @@ import { CiSearch } from "react-icons/ci";
 import { CgProfile } from "react-icons/cg";
 import { useDispatch } from "react-redux";
 import { isNav } from "../utils/navSlice";
+import { Component, useEffect, useState } from "react";
+import { YOUTUBE_Suggestion_SearchKey } from "../utils/constant";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  useEffect(() => {
+    const timer = setTimeout(() => fetchQuery(), 700);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [searchQuery]);
+  var fetchQuery = async () => {
+    const data = await fetch(YOUTUBE_Suggestion_SearchKey + searchQuery);
+    const response = await data.json();
+    console.log(response[1]);
+  };
+
+  // Debouncing Example
+
+  // key - i
+  //    -- render the Component
+  //    --useEffect()
+  //    -- setTimeout
+
+  // key -ip
+  //   --declines an API call (return () => { clearTimeOut()})
+  //   --Rerender the Component
+  //   --set Timeout
+
   const dispatch = useDispatch();
   const navChange = () => {
     dispatch(isNav());
@@ -27,7 +55,9 @@ const Header = () => {
         <input
           className="w-[40%] h-full  bg-gray-100 rounded-l-2xl border border-gray-200 outline-gray-300 p-2 "
           type="text"
-          placeholder="Search..."
+          placeholder="Search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
         <CiSearch className="text-4xl items-center h-full my-auto bg-gray-100 p-1 rounded-r-2xl border border-gray-200" />
       </div>

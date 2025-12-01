@@ -7,6 +7,7 @@ import VediosCards from "./Componenta/VediosCards";
 import VedioButton from "./Componenta/VedioButton";
 import WatchPage from "./Componenta/WatchPage";
 const App = () => {
+  console.log("FULL STORE:", Store.getState());
   const RouteApp = createBrowserRouter([
     {
       path: "/",

@@ -5,6 +5,7 @@ const navSlice = createSlice({
     name : "app",
     initialState : {
         hambersand : true ,
+        description : false
     },
     reducers : {
         isNav : (state) => {
@@ -12,9 +13,13 @@ const navSlice = createSlice({
         },
         Watch : (state) => {
             state.hambersand = false 
+        },
+        toggleNav : (state) => {
+            state.description = !state.description ;
         }
+        
 
     }
 })
 export default navSlice.reducer;
-export const {isNav ,Watch} = navSlice.actions ;
+export const {isNav ,Watch , toggleNav } = navSlice.actions ;

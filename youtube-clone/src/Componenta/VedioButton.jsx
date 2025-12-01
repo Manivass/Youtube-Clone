@@ -13,7 +13,7 @@ const VedioButton = ({ items }) => {
         <p className="text-md font-semibold">{title}</p>
         <h2 className="text-sm text-gray-600 font-bold">{channelTitle}</h2>
         <p className="text-sm text-gray-600">
-          {Math.floor(viewCount / 100000)}k Views
+          {Math.floor(viewCount / 100000)}M Views
         </p>
       </div>
     </div>
