@@ -5,7 +5,7 @@ const navSlice = createSlice({
     name : "app",
     initialState : {
         hambersand : true ,
-        description : false
+        description : true 
     },
     reducers : {
         isNav : (state) => {

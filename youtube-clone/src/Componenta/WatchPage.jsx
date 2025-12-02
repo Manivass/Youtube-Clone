@@ -8,7 +8,7 @@ import { FaRegThumbsDown } from "react-icons/fa6";
 import { FaRegShareFromSquare } from "react-icons/fa6";
 import { IoDownloadOutline } from "react-icons/io5";
 import { BsThreeDots } from "react-icons/bs";
-import Store from "../utils/store";
+
 
 const WatchPage = () => {
   const dispatch = useDispatch();
