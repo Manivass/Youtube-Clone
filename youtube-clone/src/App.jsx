@@ -7,6 +7,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import VediosCards from "./Componenta/VediosCards";
 import VedioButton from "./Componenta/VedioButton";
 import WatchPage from "./Componenta/WatchPage";
+import Results from "./Componenta/SearchResults";
+
 const App = () => {
   console.log("FULL STORE:", Store.getState());
   const RouteApp = createBrowserRouter([
@@ -15,20 +17,26 @@ const App = () => {
       element: <Body />,
       children: [
         {
-          path: "/",
+          path: "",
           element: <VediosCards />,
         },
         {
-          path: "/watch",
+          path: "watch",
           element: <WatchPage />,
         },
+        {
+          path : "search",
+          element:<Results />
+        }
+        
       ],
+      
     },
   ]);
   return (
     <div className="">
       <Provider store={Store}>
-        <Header />
+        
         <RouterProvider router={RouteApp} />
       </Provider>
     </div>

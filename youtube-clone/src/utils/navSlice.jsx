@@ -16,10 +16,13 @@ const navSlice = createSlice({
         },
         toggleNav : (state) => {
             state.description = !state.description ;
+        },
+        Search : (state) => {
+            state.hambersand = true ;
         }
         
 
     }
 })
 export default navSlice.reducer;
-export const {isNav ,Watch , toggleNav } = navSlice.actions ;
+export const {isNav ,Watch , toggleNav ,Search  } = navSlice.actions ;
