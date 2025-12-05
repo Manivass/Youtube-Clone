@@ -10,17 +10,20 @@ import { IoDownloadOutline } from "react-icons/io5";
 import { BsThreeDots } from "react-icons/bs";
 import CommentButton from "./CommentButton";
 import MockComment from "./MockComment";
+
+import LiveChatSlide from "./LiveChatSlide";
+import { addChatList } from "../utils/chatSlice";
 const WatchPage = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(Watch());
-  }, []);
+  const [textValue, setTextValue] = useState("");
   const [searchParams] = useSearchParams();
   const vedioId = searchParams.get("v");
   const [information, setInformation] = useState("");
   const description = useSelector((store) => store.Nav.description);
-  console.log(description);
-
+  console.log(textValue);
+  useEffect(() => {
+    dispatch(Watch());
+  }, []);
   //get the api using Search Params
   useEffect(() => {
     fetchVideoApi();
@@ -36,15 +39,15 @@ const WatchPage = () => {
     setInformation(response.items[0]);
   };
   console.log(information);
-  const snippet = information.snippet;
-  const statistics = information.statistics;
+  const snippet = information?.snippet;
+  const statistics = information?.statistics;
   console.log(statistics);
   const handleToggle = () => {
     dispatch(toggleNav());
   };
 
   return (
-    <div className="border min-w-[1280px] w-full  px-12 py-4 h-auto mx-auto">
+    <div className=" min-w-[1280px] w-full  pl-2 py-4 h-auto mx-auto flex">
       <div className="w-[1050px]">
         <iframe
           className="w-full"
@@ -123,6 +126,36 @@ const WatchPage = () => {
           <h2 className="text-xl font-semibold mb-2">Comments :</h2>
           <CommentButton values={MockComment} />
         </div>
+      </div>
+      <div className="w-full">
+        <h2 className="text-xl w-11/12 mx-auto font-semibold bg-slate-100  border-t  border-slate-200 p-2 rounded-t-lg">
+          Live Chat
+        </h2>
+        <LiveChatSlide />
+        <form className=" w-11/12  mx-auto font-semibold bg-slate-100  border-b  border-slate-200 px-4 py-2 rounded-b-lg flex justify-around">
+          <input
+            className=" w-[250px] h-[35px] p-1 bg-white border border-gray-200 outline-none"
+            placeholder="Enter your text..."
+            value={textValue}
+            onChange={(e) => {
+              setTextValue(e.target.value);
+            }}
+          />
+          <button
+            className="px-3 py-1 bg-green-200 rounded-lg"
+            onClick={(e) => {
+              e.preventDefault();
+              dispatch(
+                addChatList({
+                  name: "Manivass",
+                  text: textValue,
+                })
+              );
+            }}
+          >
+            Send
+          </button>
+        </form>
       </div>
     </div>
   );

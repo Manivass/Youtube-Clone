@@ -1,7 +1,6 @@
 import CommentCards from "./CommentCards";
 
 const CommentButton = ({ values }) => {
-  console.log(values);
 
   return (
     <div className=" p-0 rounded-lg  ">

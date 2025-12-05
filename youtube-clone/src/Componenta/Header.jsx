@@ -32,7 +32,8 @@ const Header = () => {
   var fetchQuery = async () => {
     const data = await fetch(YOUTUBE_Suggestion_SearchKey + searchQuery);
     const response = await data.json();
-
+    console.log(response[1]);
+    
     setSuggestion(response[1]);
     dispatch(
       saveCache({
